@@ -1,2 +1,1 @@
-require("remap")
-print("igordc/init.lua too")
+require("igordc.remap")
