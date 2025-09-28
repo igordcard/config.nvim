@@ -1,0 +1,2 @@
+require("igordc")
+print("working")
