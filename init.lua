@@ -1,2 +1,2 @@
 require("igordc")
-print("working")
+require("config.lazy")
