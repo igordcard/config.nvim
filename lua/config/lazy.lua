@@ -28,6 +28,7 @@ require("lazy").setup({
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		-- followed by the plugins.extras
 		{ import = "lazyvim.plugins.extras.dap.core" },
+		{ import = "lazyvim.plugins.extras.coding.nvim-cmp" },
 		-- import your plugins
 		{ import = "plugins" },
 	},
