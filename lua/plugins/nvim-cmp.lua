@@ -10,6 +10,10 @@ return {
 			local cmp = require("cmp")
 			-- Modify only what we need
 			opts.preselect = cmp.PreselectMode.None -- Disable preselection
+			opts.enabled = function()
+				local disabled_filetypes = { "markdown", "gitcommit" }
+				return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
+			end
 			opts.mapping["<CR>"] = cmp.mapping({
 				i = function(fallback)
 					if cmp.visible() and cmp.get_selected_entry() then
