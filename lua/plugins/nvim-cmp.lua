@@ -6,12 +6,11 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		opts = function()
+		opts = function(_, opts)
 			local cmp = require("cmp")
-			local conf = require("lazyvim.plugins.cmp") -- Import LazyVim’s default config
 			-- Modify only what we need
-			conf.preselect = cmp.PreselectMode.None -- Disable preselection
-			conf.mapping["<CR>"] = cmp.mapping({
+			opts.preselect = cmp.PreselectMode.None -- Disable preselection
+			opts.mapping["<CR>"] = cmp.mapping({
 				i = function(fallback)
 					if cmp.visible() and cmp.get_selected_entry() then
 						cmp.confirm({ select = false }) -- Confirm only if explicitly selected
@@ -21,7 +20,6 @@ return {
 					end
 				end,
 			})
-			return conf
 		end,
 	},
 }
