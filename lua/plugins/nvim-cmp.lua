@@ -14,16 +14,11 @@ return {
 				local disabled_filetypes = { "markdown", "gitcommit" }
 				return not vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
 			end
-			opts.mapping["<CR>"] = cmp.mapping({
-				i = function(fallback)
-					if cmp.visible() and cmp.get_selected_entry() then
-						cmp.confirm({ select = false }) -- Confirm only if explicitly selected
-					else
-						cmp.close() -- Close menu
-						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, true, true), "n", true) -- Insert newline
-					end
-				end,
-			})
+			-- Disable arrow keys to prevent stealing cursor movement
+			opts.mapping["<Up>"] = nil
+			opts.mapping["<Down>"] = nil
+			-- Disable Enter to always insert newline; use <C-y> to confirm selection
+			opts.mapping["<CR>"] = nil
 		end,
 	},
 }
