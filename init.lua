@@ -1,2 +1,2 @@
-require("igordc")
 require("config.lazy")
+require("igordc")
